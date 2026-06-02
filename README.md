@@ -6,6 +6,7 @@
   <a href="./src/cc-python-runtime/"><img src="https://img.shields.io/badge/python-3.13-blue" alt="Python"></a>
   <a href="./src/cc-python-runtime/tests/"><img src="https://img.shields.io/badge/tests-pytest-green" alt="Tests"></a>
   <a href="./docs/"><img src="https://img.shields.io/badge/docs-Markdown-lightgrey" alt="Docs"></a>
+  <a href="./LICENSE"><img src="https://img.shields.io/badge/license-MIT-yellow" alt="License"></a>
 </p>
 
 ---
@@ -80,15 +81,59 @@
 
 ---
 
-## 🚀 快速开始
+## 💻 源码复刻
 
-### 跑源码
+本仓库包含一个**Python 复刻版**的 Claude Code 运行时核心，用于理解其内部机制。
+
+### 核心模块
+
+| 模块 | 路径 | 说明 |
+|------|------|------|
+| **查询循环** | [`cc/core/query_loop.py`](./src/cc-python-runtime/cc/core/query_loop.py) | Agent 主状态机，Phase 1-6 循环 |
+| **查询引擎** | [`cc/core/query_engine.py`](./src/cc-python-runtime/cc/core/query_engine.py) | 模型调用与事件流编排 |
+| **工具执行器** | [`cc/tools/streaming_executor.py`](./src/cc-python-runtime/cc/tools/streaming_executor.py) | 流式工具调用与结果回注 |
+| **权限门控** | [`cc/permissions/`](./src/cc-python-runtime/cc/permissions/) | 四级决策链与规则引擎 |
+| **记忆系统** | [`cc/memory/`](./src/cc-python-runtime/cc/memory/) | 跨会话知识提取与召回 |
+| **上下文压缩** | [`cc/compact/`](./src/cc-python-runtime/cc/compact/) | Token 阈值检测与摘要生成 |
+| **Agent Teams** | [`cc/swarm/`](./src/cc-python-runtime/cc/swarm/) | 多 Agent 协调与邮箱通信 |
+| **MCP 客户端** | [`cc/mcp/`](./src/cc-python-runtime/cc/mcp/) | 外部工具协议集成 |
+
+### 运行测试
 
 ```bash
 cd src/cc-python-runtime
 uv sync
 pytest tests/ -v
 ```
+
+### 目录结构
+
+```
+src/cc-python-runtime/
+├── cc/
+│   ├── main.py              # CLI 入口
+│   ├── api/                 # Claude API 客户端
+│   ├── commands/            # 命令注册
+│   ├── compact/             # 上下文压缩
+│   ├── core/                # 查询循环 + 查询引擎
+│   ├── hooks/               # 事件钩子
+│   ├── mcp/                 # MCP 协议客户端
+│   ├── memory/              # 记忆提取与存储
+│   ├── models/              # 消息模型与内容块
+│   ├── permissions/         # 权限门控
+│   ├── prompts/             # Prompt 构建器
+│   ├── session/             # 会话管理
+│   ├── skills/              # Skill 加载器
+│   ├── swarm/               # Agent Teams
+│   ├── tools/               # 20+ 内置工具
+│   ├── ui/                  # 终端渲染
+│   └── utils/               # 工具函数
+└── tests/                   # 单元 + 集成 + E2E 测试
+```
+
+---
+
+## 🚀 快速开始
 
 ### 读手册
 
@@ -97,6 +142,14 @@ pytest tests/ -v
 ### 读论文
 
 → 从 [`第 1 章 引言`](./docs/internals/01-final-thesis/ch-01-introduction.md) 开始
+
+### 跑源码
+
+```bash
+cd src/cc-python-runtime
+uv sync
+pytest tests/ -v
+```
 
 ---
 
@@ -112,16 +165,16 @@ pytest tests/ -v
 
 ---
 
-## 📁 项目结构
+## 📁 仓库结构
 
 ```
 .
 ├── docs/
-│   ├── internals/                 # 内核知识库
-│   ├── manual/                    # 使用手册
-│   └── assets/                    # 静态资源
+│   ├── internals/                 # 内核知识库（论文 + 分析 + 调研）
+│   ├── manual/                    # 使用手册（8 部分 24 章）
+│   └── assets/                    # 静态资源（横幅、插图）
 ├── src/
-│   └── cc-python-runtime/         # Python 运行时源码
+│   └── cc-python-runtime/         # Python 运行时源码复刻
 └── scripts/                       # 维护脚本
 ```
 
@@ -152,6 +205,6 @@ pytest tests/ -v
 
 ---
 
-<p align="center">
-  <img src="docs/assets/avatar.png" alt="ClaudeCode-Complete Avatar" width="120">
-</p>
+## ⭐ Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=vitoworleone/ClaudeCode-Complete&type=Date)](https://star-history.com/#vitoworleone/ClaudeCode-Complete&Date)
