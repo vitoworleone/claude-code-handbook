@@ -1,0 +1,31 @@
+# 摘要
+
+## 中文摘要
+
+2026 年 3 月 31 日，安全研究者 Chaofan Shou 发现 Anthropic 发布到 npm registry 的 `@anthropic-ai/claude-code` 包中遗漏了打包过程中产生的 source map 文件。借助这些 source map，外界首次得以完整地还原 Claude ​Code 这一工业级编程 Agent 的 TypeScript 源代码——共 1902 个源文件、513,237 行代码。这是迄今为止生产级 Agent Runtime 内部结构第一次以这样的完整度进入公开视野，也为深入研究编程 Agent 的运行时工程提供了一个独特的窗口。
+
+本论文以这份完整的源码快照为研究对象，从程序入口、控制面、执行内核、工具系统、权限系统、上下文管理、记忆系统、多 Agent 协作、扩展机制九个角度，系统化地解析 Claude ​Code 的整体架构与关键机制。论文的核心论点是：Claude ​Code 不是一个简单的"模型 API 调用器加终端壳"，而是**一套面向本地代码工作流的 Agent Runtime 操作系统**——它内含状态机调度、并发控制、权限管理、内存压缩、持久化记忆、多 Agent 协作与可插拔扩展，所有这些机制围绕同一个共识构建：**协议正确性优先于输出漂亮**。
+
+论文按 9 章组织。第 1 章交代源码泄露事件与研究动机；第 2 章梳理支撑 Claude ​Code 的技术基础（Anthropic Tool Use 协议、MCP 协议、React+Ink 终端 UI、Bun 打包、Zod schema）；第 3 章从用户角色出发提取功能性需求与非功能性需求；第 4 章给出六层分层架构、数据模型、Transcript 协议与七种状态机迁移边；第 5 章对核心模块逐一深入（QueryEngine / query() 状态机、StreamingToolExecutor、工具系统、权限系统、Compact、Memory、Agent Teams、MCP、Hooks、Skills、Session）；第 6 章总结稳定性保障机制（三层错误恢复、Fail-Closed 默认值、Trust Boundary、并发安全、Coalescing 提取）；第 7 章覆盖部署实践（npm 分发、九种入口模式、跨平台适配、--bare 极简模式、启动优化）；第 8 章给出复刻验证、与 Cline/Aider/Devin/Codex CLI 的竞品对比、设计决策评估；第 9 章总结八个核心设计判断与对 Agent Runtime 工程的启示。
+
+主要发现包括：（1）`query_loop` 是一个 `while(true)` 的 `AsyncGenerator` 状态机，把模型调用、工具执行、上下文压缩、错误恢复、stop hook 全部压进同一个可审计、可恢复、可测试的闭环；（2）`StreamingToolExecutor` 在模型流式输出期间就启动工具，可降低端到端延迟 30-50%，但物理提前并不破坏协议语义；（3）transcript 是 Runtime 的唯一 Source of Truth，所有可恢复性、压缩、工具回流都依赖它，源码精确地定义了六个 transcript 写入点；（4）工具不是函数映射，而是带有 `isConcurrencySafe` / `isReadOnly` / `isDestructive` / `checkPermissions` 等安全/并发/UI 语义的能力对象，默认值采取 Fail-Closed 取向；（5）记忆系统不是黑盒数据库，而是 Markdown 文件 + MEMORY.md 索引的可审计文件系统，使用 Coalescing 策略保证最终状态一定被处理；（6）多 Agent 协作通过文件系统邮箱实现，零外部依赖，跨进程持久化。
+
+论文不仅是对一份泄露源码的反向工程，更是对**编程 Agent 工程化方法学**的一次系统总结。它对正在自研 Agent Runtime 的工程团队，以及希望深入理解"模型如何变成可用 Agent"的研究者都有参考价值。
+
+**关键词**：Agent Runtime、编程 Agent、Claude ​Code、Tool Use、流式工具执行、上下文压缩、记忆系统、多 Agent 协作、MCP、状态机
+
+---
+
+## Abstract
+
+On March 31, 2026, security researcher Chaofan Shou discovered that Anthropic had inadvertently left source map files in the npm-distributed `@anthropic-ai/claude-code` package. Using these source maps, the broader community was for the first time able to reconstruct the complete TypeScript source of Claude ​Code — an industrial-grade coding agent — totalling 1,902 source files and 513,237 lines of code. This is, to date, the most complete public view into the internals of a production-grade agent runtime, and it offers a unique opportunity to study the engineering of coding agents at a depth that was previously not possible.
+
+This thesis takes this complete source-code snapshot as its object of study. It systematically analyses Claude ​Code's architecture and key mechanisms across nine dimensions: program entry, control plane, execution kernel, tool system, permission system, context management, memory system, multi-agent collaboration, and extension surfaces. The central thesis is that Claude ​Code is not a thin wrapper around a model API plus a terminal frontend; rather, it is **an agent runtime operating system designed around local code workflows** — incorporating state-machine scheduling, concurrency control, permission management, memory compaction, persistent memory, multi-agent collaboration, and pluggable extensions, all unified by one engineering creed: **protocol correctness takes precedence over presentation polish**.
+
+The thesis is organised in nine chapters. Chapter 1 reviews the source-leak event and motivates the research. Chapter 2 surveys the technical foundation underlying Claude ​Code (Anthropic Tool Use protocol, MCP protocol, React+Ink terminal UI, Bun bundling, Zod schemas). Chapter 3 extracts functional and non-functional requirements from user roles. Chapter 4 presents the six-layer architecture, data model, transcript protocol, and the seven state-machine transitions. Chapter 5 dives deeply into each core module: the QueryEngine / `query()` state machine, StreamingToolExecutor, tool system, permission system, compaction, memory, agent teams, MCP, hooks, skills, and session persistence. Chapter 6 enumerates reliability safeguards (three-tier error recovery, fail-closed defaults, trust boundary, concurrency safety, coalescing extraction). Chapter 7 covers deployment practice (npm distribution, nine entry-point modes, cross-platform adaptation, `--bare` minimal mode, startup optimisation). Chapter 8 presents reimplementation validation, comparison with Cline / Aider / Devin / Codex CLI, and design-decision evaluation. Chapter 9 distils the eight core design judgements and discusses implications for agent-runtime engineering.
+
+Key findings include: (1) `query_loop` is implemented as a `while(true)` `AsyncGenerator` state machine that compresses model invocation, tool execution, context compaction, error recovery, and stop-hook handling into a single auditable, recoverable, and testable loop; (2) `StreamingToolExecutor` launches tool execution while the model is still streaming its response, reducing end-to-end latency by 30–50% without violating protocol semantics; (3) the transcript is the runtime's single source of truth — all recoverability, compaction, and tool round-tripping depend on it, with exactly six precisely defined transcript write points; (4) tools are not function mappings but capability objects carrying safety, concurrency, and UI semantics (`isConcurrencySafe`, `isReadOnly`, `isDestructive`, `checkPermissions`), with fail-closed defaults; (5) the memory system is not an opaque database but an auditable Markdown file system indexed by `MEMORY.md`, using coalescing extraction to guarantee that the final state is always processed; (6) multi-agent collaboration is implemented via a file-system mailbox, with zero external dependencies and cross-process persistence.
+
+The thesis is more than a reverse-engineering of a leaked codebase: it is a systematic summary of **the engineering methodology of coding agents**, useful both for engineering teams building their own agent runtimes and for researchers seeking to understand how a model becomes a usable agent.
+
+**Keywords**: agent runtime, coding agent, Claude ​Code, tool use, streaming tool execution, context compaction, memory system, multi-agent collaboration, MCP, state machine

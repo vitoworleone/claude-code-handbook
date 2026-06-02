@@ -1,0 +1,90 @@
+# ============================================
+# ClaudeCode-Runtime — Git Ignore Rules
+# ============================================
+
+# ---- Environment & Secrets ----
+.env
+!.env.example
+*.pem
+*.key
+secrets.yaml
+secrets.json
+
+# ---- Python ----
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+dist/
+build/
+*.egg
+
+# ---- Virtual Environments ----
+.venv/
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+
+# ---- Python Tools Cache ----
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.hypothesis/
+.coverage
+htmlcov/
+.tox/
+
+# ---- Node (if any) ----
+node_modules/
+npm-debug.log*
+package-lock.json
+
+# ---- IDE ----
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# ---- Claude / Agent Tooling ----
+.claude/
+.antigravitycli/
+.sisyphus/
+.traces/
+
+# ---- Nested Git Repos ----
+# 防止嵌套仓库被意外提交
+**/.git/
+
+# ---- Archives / Large Binaries ----
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+*.rar
+*.7z
+*.bz2
+
+# ---- Lock files (keep uv.lock, ignore others if needed) ----
+# uv.lock is intentionally tracked for reproducibility
+# poetry.lock / Pipfile.lock can be added here if needed
+
+# ---- Manual project exclusions ----
+feishu-export/
+.backup-summaries/
+
+# ---- Project metadata (not for repo) ----
+fields.yaml
+outline.yaml
+
+# ---- HTML Archives (large, generated) ----
+docs/internals/html-archive/
+
+# ---- Third-party reference projects (large) ----
+oh-my-openagent/
