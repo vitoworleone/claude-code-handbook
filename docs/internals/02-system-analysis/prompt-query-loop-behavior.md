@@ -1,4 +1,4 @@
-# 08 Prompt 详解 直接控制 query_loop 行为的四段 Prompt
+﻿# 08 Prompt 详解 直接控制 query_loop 行为的四段 Prompt
 
 > 前面的章节讲了 system prompt 的拼装流程（第17章）和 query_loop 的代码结构。这一章把视角翻过来：不看代码怎么跑，看 prompt 怎么管代码。
 

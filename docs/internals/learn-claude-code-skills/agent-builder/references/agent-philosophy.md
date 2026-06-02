@@ -1,4 +1,4 @@
-# The Philosophy of Agent Harness Engineering
+﻿# The Philosophy of Agent Harness Engineering
 
 > **The model already knows how to be an agent. Your job is to build it a world worth acting in.**
 

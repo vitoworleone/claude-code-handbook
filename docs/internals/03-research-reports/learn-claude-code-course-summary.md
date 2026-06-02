@@ -1,4 +1,4 @@
-# learn-claude-code s01-s12 课程总结
+﻿# learn-claude-code s01-s12 课程总结
 
 > 来源：shareAI-lab/learn-claude-code  
 > 整理时间：2026-05-16  
@@ -295,5 +295,5 @@ s12: Worktree         ← 文件隔离
 
 1. 先通读 `learn-claude-code-docs/zh/` 对应 session 的文档（概念层）
 2. 再对照 `learn-claude-code-agents/s*_*.py` 代码实现（细节层）
-3. 最后结合 `ClaudeCode-Runtime/02_Source-Code/` 真实源码（工程层）
+3. 最后结合 `ClaudeCode-Runtime/src/cc-python-runtime/` 真实源码（工程层）
 4. 交叉验证 `08_Skill-Outputs/` 中的调研报告（体系层）

@@ -1,6 +1,6 @@
-# 第四节关键子系统拆解调研
+﻿# 第四节关键子系统拆解调研
 
-目标文档：`08_Skill-Outputs/Agent_Runtime_架构与原理综合报告.md`
+目标文档：`[internal research report]`
 
 调研范围：第四节「关键子系统原理」，即 StreamingToolExecutor、Permission Gate、Context Compaction、Memory System、Agent Teams、MCP。
 

@@ -1,12 +1,9 @@
-# 缓存与上下文窗口优化机制完整调研报告
+﻿# 缓存与上下文窗口优化机制完整调研报告
 
 > 生成时间：2026-05-17  
 > 研究对象：ClaudeCode-Runtime 的上下文管理、缓存、压缩、session/memory、MCP schema 加载机制  
-> 原始报告：`08_Skill-Outputs/缓存与上下文窗口优化机制调研报告.md`  
-> 原始备份：`08_Skill-Outputs/缓存与上下文窗口优化机制调研报告.backup-20260517-0949.md`  
-> research-add-fields 产物：`08_Skill-Outputs/cache_context_window_research_deep/fields.yaml`  
-> research-deep 产物：`08_Skill-Outputs/cache_context_window_research_deep/results/*.json`  
-> 校验结果：6 份 JSON 全部通过字段校验，`6/6 PASS`  
+> 原始报告：`[internal research report]`  
+> 原始备份：`[internal research report]`  
 
 ---
 
@@ -858,21 +855,21 @@ PromptCachePolicy + cache usage telemetry + 两轮 cache hit 测试
 
 ### 12.3 本地源码锚点
 
-- `F:\JOB\Project\ClaudeCode-Runtime\02_Source-Code\01_CC-Python-Runtime\Source\cc\core\query_loop.py`
-- `F:\JOB\Project\ClaudeCode-Runtime\02_Source-Code\01_CC-Python-Runtime\Source\cc\compact\compact.py`
-- `F:\JOB\Project\ClaudeCode-Runtime\02_Source-Code\01_CC-Python-Runtime\Source\cc\api\token_estimation.py`
-- `F:\JOB\Project\ClaudeCode-Runtime\02_Source-Code\01_CC-Python-Runtime\Source\cc\api\claude.py`
-- `F:\JOB\Project\ClaudeCode-Runtime\02_Source-Code\01_CC-Python-Runtime\Source\cc\prompts\builder.py`
-- `F:\JOB\Project\ClaudeCode-Runtime\02_Source-Code\01_CC-Python-Runtime\Source\cc\session\storage.py`
-- `F:\JOB\Project\ClaudeCode-Runtime\02_Source-Code\01_CC-Python-Runtime\Source\cc\mcp\client.py`
+- `
+- `
+- `
+- `
+- `
+- `
+- `
 
 ### 12.4 research-deep 产物
 
-- `F:\JOB\Project\ClaudeCode-Runtime\08_Skill-Outputs\cache_context_window_research_deep\outline.yaml`
-- `F:\JOB\Project\ClaudeCode-Runtime\08_Skill-Outputs\cache_context_window_research_deep\fields.yaml`
-- `F:\JOB\Project\ClaudeCode-Runtime\08_Skill-Outputs\cache_context_window_research_deep\results\Foundational_Long_Context_Transformer_Mechanisms.json`
-- `F:\JOB\Project\ClaudeCode-Runtime\08_Skill-Outputs\cache_context_window_research_deep\results\KV_Cache_and_Inference_Memory_Optimization.json`
-- `F:\JOB\Project\ClaudeCode-Runtime\08_Skill-Outputs\cache_context_window_research_deep\results\Prompt_Caching_and_Prefix_Reuse.json`
-- `F:\JOB\Project\ClaudeCode-Runtime\08_Skill-Outputs\cache_context_window_research_deep\results\Context_Compression_and_Memory_Tiering.json`
-- `F:\JOB\Project\ClaudeCode-Runtime\08_Skill-Outputs\cache_context_window_research_deep\results\Retrieval_and_External_Memory.json`
-- `F:\JOB\Project\ClaudeCode-Runtime\08_Skill-Outputs\cache_context_window_research_deep\results\ClaudeCode_Runtime_Implementation_Gap_Analysis.json`
+- `
+- `
+- `
+- `
+- `
+- `
+- `
+- `

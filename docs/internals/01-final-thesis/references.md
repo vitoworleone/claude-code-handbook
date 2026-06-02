@@ -1,4 +1,4 @@
-# 参考文献与附录
+﻿# 参考文献与附录
 
 ---
 
@@ -71,58 +71,6 @@
 [29] *Cursor: The AI Code Editor*. https://cursor.sh/
 
 ### 五、本项目内部研究文档
-
-> 以下为本项目（ClaudeCode-Runtime）在源码研究过程中产出的内部材料，按主题分类列出。所有文档位于 `00_Project-Paper/`、`03_References/` 与 `08_Skill-Outputs/`。
-
-#### 5.1 章节级深度草稿（00_Project-Paper/02-*）
-
-[I-1] 02-Chapter2-Knowledge-Graph.md — 第二章知识图谱速查
-[I-2] 02-Report-Chapter2-Section1.md — 技术栈选择与设计原因
-[I-3] 02-Report-Chapter2-Section2.md — 六层运行时骨架架构分层
-[I-4] 02-Report-Chapter2-Section3-Entrypoints.md — 九种程序入口与多入口设计
-[I-5] 02-Report-Chapter2-Section4-Startup-Flow.md — 启动六阶段与四原则
-[I-6] 02-Report-Chapter2-Section5-QueryLoop.md — query_loop 状态机
-[I-7] 02-Report-Chapter2-Section6-TUI.md — TUI 与终端渲染
-[I-8] 02-Report-Chapter2-Section7-DesignDecisions.md — 关键设计决策
-[I-9] 02-Report-Chapter2-Section8-CorePositioning.md — 核心定位判断
-[I-10] 02-Report-Chapter2-Section9-ExecutionChain.md — 主执行链路完整流转
-[I-11] 03-Research-Report-ContextCompiler-DeepDive.md — Context Compiler 深度研究
-
-#### 5.2 系统分析与执行链路调研（08_Skill-Outputs/）
-
-[I-12] 2026-05-16_01_System-Analysis_源码锚定深度中文研究报告.md
-[I-13] 2026-05-16_03_References_完整中文研究报告.md
-[I-14] 2026-05-16_code-exploration_架构全景与核心机制.md
-[I-15] 2026-05-16_control-plane_agent-runtime-core_架构调研.md
-[I-16] 2026-05-16_improve-architecture_section-4_key-subsystems.md
-[I-17] 2026-05-16_investigate_QueryEngine_query_loop.md
-[I-18] 2026-05-16_project-paper-coach_ClaudeCode-Runtime_initial-map.md
-[I-19] Agent_Runtime_架构与原理综合报告.md
-[I-20] Harness架构设计调研报告.md
-[I-21] 上下文注入与连续性保持机制调研报告.md
-[I-22] 缓存与上下文窗口优化机制调研报告.md
-[I-23] 学习疑问_待深入话题调研报告.md
-[I-24] 学习疑问与理解总结_二次调研报告.md
-[I-25] 2026-05-16_context-continuity-compact-pdf-discussion.md
-
-#### 5.3 第三方源码地图与参考实现（03_References/）
-
-[I-26] claude-code-sourcemap-main/ — 反向工程的 TS 源码快照（1902 文件）
-[I-27] learn-claude-code-docs/ — 官方文档归档
-[I-28] learn-claude-code-skills/ — 内置 skills 归档
-[I-29] learn-claude-code-agents/ — 内置 agent 定义归档
-[I-30] oh-my-openagent/ — 同类开源 harness 项目参考
-[I-31] agent-harness-project-reference.md — Harness 综合参考
-
-### 六、Python 复刻实现
-
-[I-32] 02_Source-Code/01_CC-Python-Runtime/Source/ — Python 复刻的 cc 包源码
-[I-33] cc/core/query_loop.py — query_loop 复刻
-[I-34] cc/core/query_engine.py — QueryEngine 复刻
-[I-35] cc/tools/streaming_executor.py — StreamingToolExecutor 复刻
-[I-36] tests/unit/ — 498 个单元测试
-
----
 
 ## 附录 A：术语表
 

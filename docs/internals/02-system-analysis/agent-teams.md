@@ -1,4 +1,4 @@
-# 12 Agent Teams
+﻿# 12 Agent Teams
 
 到目前为止我们看到的都是单个 Agent 的循环——一个 query_loop 处理一个用户请求。但有些任务太大，需要多个 Agent 并行工作。Agent Teams 就是 Claude Code 的多 Agent 协作框架。本章讲清楚它是怎么触发的、内部怎么实现、数据怎么流转。
 

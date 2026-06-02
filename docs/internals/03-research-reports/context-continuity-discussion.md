@@ -1,8 +1,7 @@
-# 上下文连续性、Compact 与 PDF 处理讨论记录
+﻿# 上下文连续性、Compact 与 PDF 处理讨论记录
 
 > 生成时间：2026-05-16  
 > 范围：本轮关于 ClaudeCode-Runtime 上下文注入、上一轮状态保持、长上下文注意力稀释、session/compact 区别、PDF 解析方案的讨论整理。  
-> 相关基础报告：`08_Skill-Outputs/上下文注入与连续性保持机制调研报告.md`
 
 ---
 

@@ -1,4 +1,4 @@
-# 第 8 章 测试与评估
+﻿# 第 8 章 测试与评估
 
 > 本章从评估视角对 Claude ​Code 做系统化的对照分析。评估包括三个维度：（1）通过 Python 复刻验证我们对 Claude ​Code 机制的理解正确性；（2）把 Claude ​Code 与 Cline / Aider / Devin / Codex CLI 等同类编程 Agent 在架构维度上对比；（3）逐一评估第 4-7 章中识别的关键设计决策的收益与代价。
 
@@ -8,7 +8,7 @@
 
 ### 8.1.1 复刻范围与策略
 
-为了验证对 Claude ​Code 内部机制的理解，我们用 Python 实现了功能对齐的 Agent Runtime（位于 `02_Source-Code/01_CC-Python-Runtime/`）。复刻不是为了产品化，而是为了**通过手写来验证理解**。
+为了验证对 Claude ​Code 内部机制的理解，我们用 Python 实现了功能对齐的 Agent Runtime（位于 `src/cc-python-runtime/`）。复刻不是为了产品化，而是为了**通过手写来验证理解**。
 
 复刻覆盖范围：
 

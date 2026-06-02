@@ -1,8 +1,8 @@
-# Claude Code TypeScript 源码深度研究报告（源码锚定版）
+﻿# Claude Code TypeScript 源码深度研究报告（源码锚定版）
 
 > 生成时间：2026-05-20
-> 研究对象：`F:\JOB\Project\ClaudeCode-Runtime\03_References\claude-code-sourcemap-main\claude code analysis\src`
-> 对照源码：`F:\JOB\Project\ClaudeCode-Runtime\02_Source-Code\01_CC-Python-Runtime\Source`
+> 研究对象：` code analysis\src`
+> 对照源码：`
 > 方法：逐文件阅读 TS 源码关键模块（共计约 1.3MB 核心代码），逐机制锚定到具体行号和代码块，按 `Claim → Source → Evidence → Extension` 结构输出。
 > 重要说明：本报告不是抽象摘要，而是把每一个架构决策追溯到具体的 TypeScript 代码片段，给出行号范围和关键变量名。
 
@@ -647,4 +647,4 @@ if (decision.action === 'continue') {
 
 ---
 
-> 本报告所有代码引用均来自 `F:\JOB\Project\ClaudeCode-Runtime\03_References\claude-code-sourcemap-main\claude code analysis\src` 目录下的 TypeScript 源码。行号基于截至 2026-05-20 的文件版本。
+> 本报告所有代码引用均来自 ` code analysis\src` 目录下的 TypeScript 源码。行号基于截至 2026-05-20 的文件版本。

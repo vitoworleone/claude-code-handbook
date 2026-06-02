@@ -1,4 +1,4 @@
-# Claude ​Code Agent Runtime 源码研究与设计解析 — 论文大纲
+﻿# Claude ​Code Agent Runtime 源码研究与设计解析 — 论文大纲
 
 > 主题：以 2026 年 3 月 31 日 npm 源码泄露事件中暴露的 1902 个 TypeScript 文件（513,237 行代码）为对象，对 Anthropic Claude ​Code 这一工业级编程 Agent 的运行时架构进行系统化的源码级研究。
 >
@@ -450,8 +450,8 @@ Final-Thesis/
 
 本论文的事实基础来自以下三类材料：
 
-1. **Claude ​Code TS 源码快照**：`03_References/claude-code-sourcemap-main/` 下的 1902 个 `.ts` / `.tsx` 文件
-2. **章节级深度研究草稿**：`00_Project-Paper/02-Report-Chapter2-Section1.md` 至 `02-Report-Chapter2-Section9-ExecutionChain.md`
+1. **Claude ​Code TS 源码快照**：`[source map archive]` 下的 1902 个 `.ts` / `.tsx` 文件
+2. **章节级深度研究草稿**：`[paper draft]` 至 `02-Report-Chapter2-Section9-ExecutionChain.md`
 3. **专题研究报告**：`08_Skill-Outputs/` 下的子系统调研报告、`03-Research-Report-ContextCompiler-DeepDive.md` 等
 
-Python 复刻项目（`02_Source-Code/01_CC-Python-Runtime/`）仅作为代码引用对照，不作为论文主体。所有结论必须能溯源到 TS 源码或源码注释，避免脱离证据的推测。
+Python 复刻项目（`src/cc-python-runtime/`）仅作为代码引用对照，不作为论文主体。所有结论必须能溯源到 TS 源码或源码注释，避免脱离证据的推测。

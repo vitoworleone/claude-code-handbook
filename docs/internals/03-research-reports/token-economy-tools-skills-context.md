@@ -1,7 +1,7 @@
-# AI Coding Agent 上下文、工具与 Skill 系统调研报告
+﻿# AI Coding Agent 上下文、工具与 Skill 系统调研报告
 
 > 生成日期：2026-05-22  
-> 范围：本报告参考当前工作区全部 Markdown 索引材料，以及 `03_References/claude-code-sourcemap-main/claude code analysis/src` 下的 Claude Code 逆向源码。  
+> 范围：本报告参考当前工作区全部 Markdown 索引材料，以及 `[TypeScript source map analysis]` 下的 Claude Code 逆向源码。  
 > 输出目标：回答 Token 经济性、任务命中率、工具调用能力、Skill 过多、上下文维护、不同模型工具遵循差异六组问题，并给出可验证、可落地的工程方案。
 
 ---
@@ -11,7 +11,7 @@
 用户给出的路径写作 `03_   References/.../src claude code源代码`，当前工作区实际存在的是：
 
 ```text
-F:\JOB\Project\ClaudeCode-Runtime\03_References\claude-code-sourcemap-main\claude code analysis\src
+ code analysis\src
 ```
 
 本报告主要使用以下本地证据：
@@ -28,7 +28,7 @@ F:\JOB\Project\ClaudeCode-Runtime\03_References\claude-code-sourcemap-main\claud
 | `src/skills/loadSkillsDir.ts`、`src/tools/SkillTool/prompt.ts` | skill 只估算 frontmatter token，完整内容按需加载；支持 `when_to_use`、`allowed-tools`、`paths`、`user-invocable`、`context`、`agent` 等元数据。 |
 | `src/Tool.ts` | Tool 是运行时协议对象，包含 schema、description、prompt、read-only/destructive/concurrency 标签、权限、渲染、结果映射。 |
 | `src/utils/collapseReadSearch.ts`、`collapseHookSummaries.ts` | UI/上下文层面对连续 read/search、hook summary 进行折叠，说明低价值重复工具事件可以摘要化。 |
-| 既有 Markdown | `08_Skill-Outputs/缓存与上下文窗口优化机制调研报告.md`、`08_Skill-Outputs/2026-05-16_context-continuity-compact-pdf-discussion.md`、`03_References/01_System-Analysis/09 Prompt 详解：工具.md` 等材料已经形成了 transcript、compact、memory、tool schema、skill prompt 的基础判断。 |
+| 既有 Markdown | `[internal research report]`、`docs/internals/02-system-analysis/09 Prompt 详解：工具.md` 等材料已经形成了 transcript、compact、memory、tool schema、skill prompt 的基础判断。 |
 
 ---
 

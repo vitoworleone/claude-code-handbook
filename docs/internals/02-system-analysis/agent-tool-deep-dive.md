@@ -1,4 +1,4 @@
-# 05d - AgentTool 实现详解
+﻿# 05d - AgentTool 实现详解
 
 > 05c 中我们用 3 行介绍了 AgentTool "生成子 Agent，三种模式"。但 AgentTool 是所有工具中最复杂的一个——它是唯一递归调用 `query_loop` 的工具，涉及 3 个文件、两种执行模式、一套隔离机制。本篇逐层展开。
 

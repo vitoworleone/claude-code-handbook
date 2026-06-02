@@ -1,4 +1,4 @@
----
+﻿---
 name: pdf
 description: Process PDF files - extract text, create PDFs, merge documents. Use when user asks to read PDF, create PDF, or work with PDF files.
 ---
