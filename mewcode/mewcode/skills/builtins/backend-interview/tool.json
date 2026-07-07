@@ -1,0 +1,16 @@
+[
+  {
+    "name": "parse_resume",
+    "description": "解析简历文件（支持 Markdown/TXT），提取技术栈、项目经历、工作年限等结构化信息",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "file_path": {
+          "type": "string",
+          "description": "简历文件路径"
+        }
+      },
+      "required": ["file_path"]
+    }
+  }
+]

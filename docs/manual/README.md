@@ -83,14 +83,6 @@
 - [第24章 常见失败模式与修复](part-08-advanced/ch-24-failure-modes.md)
   - 上下文溢出、死循环、大文件编辑、工具调用失败
 
-### 附录
-- [附录A：`.claude` 目录完整地图速查](appendix/appendix-a-claude-dir.md)
-- [附录B：能力地图](appendix/appendix-b-capability-map.md)
-- [附录C：最值得实践的六阶段路线](appendix/appendix-c-roadmap.md)
-- [附录D：推荐阅读](appendix/appendix-d-reading.md)
-- [附录E：常用命令速查表](appendix/appendix-e-command-cheatsheet.md)
-- [附录F：模型分工速查](appendix/appendix-f-model-division.md)
-
 ---
 
 ## 快速上手建议
@@ -102,21 +94,19 @@
     ↓
 第6章（核心工作流） → 第9章（小米组织实践） → 第10章（记忆系统） → 第11章（上下文管理）
     ↓
-附录E（命令速查） + 附录F（模型分工）
+第13章（Skills） + 第15章（MCP）
 ```
 
 ---
 
 ## 内容来源说明
 
-本手册整合了以下四类素材：
+本手册整合了以下素材：
 
 | 来源类型 | 文件数 | 代表内容 |
 |---|---|---|
 | apply/ 实战方法论 | 5 | Matt Pocock 工作流、徐文浩安全闭环、刘小排实战方法论、小米 AI Coding 工程化实践、官方文档阅读玩法 |
 | Offical Doc/ 官方文档 | 10 | 目录结构、配置、Channels、Hooks、Skills、记忆、插件、Worktree、最佳实践 |
-| Paper/ 研究报告 + Final-Thesis | 42 | 源码架构分析、query_loop、工具系统、权限、压缩与记忆、Agent Teams、Token 经济性 |
-| reports/ 源码分析 | 11 | CLI 入口、启动流程、状态机、工具系统、权限模型、MCP、上下文压缩、自动化系统 |
 
 ---
 

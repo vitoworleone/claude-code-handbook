@@ -1,4 +1,4 @@
-# AGENTS.md — ClaudeCode-Complete 仓库维护指南
+# AGENTS.md — claude-code-handbook 仓库维护指南
 
 > 本文件供 AI Agent（包括 Claude Code）和人类维护者参考。修改仓库结构前请先读此文件。
 
@@ -6,12 +6,16 @@
 
 ## 1. 项目定位
 
-本仓库是 **Claude Code 的完整知识库**，包含两条互补主线：
+本仓库是 **Claude Code 的实战知识库 + Agent Runtime 工坊**，面向想"用得好"和"造得出" Claude Code 类 Agent 的开发者。
 
-- **理解内核** — Agent Runtime 机制的源码拆解与重建
-- **高效使用** — 从使用者视角出发的实战指南与工作流
+包含四条主线：
 
-不是业务产品，而是机制理解与实战经验的沉淀。长期可更新，随认知迭代持续补充。
+- **使用手册** — 从安装配置到高级技巧的完整实战指南
+- **实践配方** — 可直接复用的代码、配置、Skill 模板和参考对照
+- **Agent Runtime 工坊** — 手把手从零实现 Coding Agent 的教程与参考实现
+- **Harness 笔记** — Agent Harness 架构学习与整理
+
+不是学术论文集，也不是官方文档复读。内容是实战经验沉淀，长期可更新，随认知迭代持续补充。
 
 ---
 
@@ -20,17 +24,14 @@
 ### 2.1 顶层目录
 
 ```
-claude-code-complete/
+claude-code-handbook/
 ├── docs/                          # 全部文档
-│   ├── internals/                 # 内核知识库（论文 + 分析 + 调研）
-│   │   ├── 00-overview.md         # 项目定位与架构分层
-│   │   ├── 01-final-thesis/       # 完整论文 9 章
-│   │   ├── 02-system-analysis/    # 源码级中文分析
-│   │   ├── 03-research-reports/   # 独立深度调研报告
-│   │   ├── source-analysis/       # 源码映射精华分析
-│   │   ├── transcripts/           # 文字记录
-│   │   └── learn-claude-code-*/   # 教程材料
+│   ├── assets/                    # 静态资源
+│   │   ├── avatar.png
+│   │   ├── banner.png
+│   │   └── xiaomi-images/         # 小米实践插图
 │   ├── manual/                    # 使用手册
+│   │   ├── README.md              # 手册总览
 │   │   ├── part-01-overview/      # 认识 Claude Code
 │   │   ├── part-02-basics/        # 基础配置
 │   │   ├── part-03-workflow/      # 核心工作流
@@ -39,21 +40,38 @@ claude-code-complete/
 │   │   ├── part-06-parallel/      # 并行与协作
 │   │   ├── part-07-security/      # 安全与规范
 │   │   └── part-08-advanced/      # 高级技巧
-│   └── assets/                    # 静态资源
-│       ├── images/                # 通用插图
-│       └── xiaomi-images/         # 小米实践插图
+│   ├── recipes/                   # 实践配方
+│   │   ├── agents/                # Agent 示例代码
+│   │   ├── docs/                  # 中英学习文档
+│   │   │   ├── en/
+│   │   │   └── zh/
+│   │   ├── skills/                # SKILL.md 模板
+│   │   │   ├── agent-builder/
+│   │   │   ├── code-review/
+│   │   │   ├── mcp-builder/
+│   │   │   └── pdf/
+│   │   └── source-analysis/       # Agent Harness 对照参考
+│   └── workshop/                  # Agent Runtime 工坊
+│       ├── README.md              # 工坊总览
+│       └── chapters/              # 10 章核心教程
+│           └── ch-XX-name/
+│               ├── theory.md
+│               ├── python-implementation.md
+│               ├── hands-on.md
+│               └── images/
 │
-├── src/                           # Python 运行时源码
-│   └── cc-python-runtime/         # Python 复刻实现
-│       ├── cc/                    # 主源码包
-│       └── tests/
+├── harness/                       # Agent Harness 学习笔记
+│   └── README.md
 │
-├── scripts/                       # 维护与验证脚本
-│   ├── clean-for-github.ps1
-│   └── check-size.ps1
+├── mewcode/                       # Python 版 Agent Runtime 参考实现
+│   ├── README.md
+│   ├── pyproject.toml
+│   ├── mewcode/
+│   └── tests/
 │
 ├── .gitignore
 ├── AGENTS.md                      # ← 本文件
+├── LICENSE                        # MIT
 └── README.md                      # GitHub 首页
 ```
 
@@ -68,14 +86,15 @@ claude-code-complete/
 
 | 类别 | 位置 | 内容示例 |
 |------|------|----------|
-| 项目总览 | `docs/internals/00-overview.md` | 定位、边界、架构分层 |
-| 论文 | `docs/internals/01-final-thesis/` | 9 章完整论文 |
-| 系统分析 | `docs/internals/02-system-analysis/` | query loop、工具、权限、记忆 |
-| 调研报告 | `docs/internals/03-research-reports/` | 缓存优化、上下文连续性 |
-| 源码分析 | `docs/internals/source-analysis/` | 源码映射精华分析 |
-| 文字记录 | `docs/internals/transcripts/` | 讲解稿、复杂机制补充 |
 | 使用手册 | `docs/manual/part-*/` | 8 部分实战指南 |
-| 运行时源码 | `src/cc-python-runtime/` | Python 复刻实现 |
+| Agent 示例 | `docs/recipes/agents/` | agent loop、tool use、subagent、teams |
+| Skill 模板 | `docs/recipes/skills/` | agent-builder、code-review、mcp-builder |
+| 学习文档 | `docs/recipes/docs/{en,zh}/` | Claude Code 中英教程 |
+| Harness 参考 | `docs/recipes/source-analysis/` | OpenCode / Codex / DeerFlow 对照分析 |
+| 工坊教程 | `docs/workshop/chapters/ch-XX-name/` | theory / python-implementation / hands-on |
+| Harness 笔记 | `harness/` | Agent Harness 架构学习与整理 |
+| 参考实现 | `mewcode/` | Python 版 Agent Runtime 完整实现 |
+| 静态资源 | `docs/assets/` | banner、avatar、小米实践配图 |
 
 ---
 
@@ -84,49 +103,61 @@ claude-code-complete/
 ### ✅ 应该提交的
 
 - Markdown 文档（`.md`）
-- Python 源码（`.py`）
-- 配置文件（`pyproject.toml`, `.env.example`, `uv.lock`）
+- Python 源码（`.py`）—— `mewcode/` 和 `docs/recipes/agents/` 中的示例代码
+- 配置文件（`.env.example`, `pyproject.toml`, `uv.lock` 等）
 - 静态图片（`.png`, `.svg`）—— 用于文档插图
-- 脚本（`.py`, `.ps1`, `.sh`）
+- 小型脚本（`.py`, `.ps1`, `.sh`）—— 如果是配方或项目的一部分
 
 ### ❌ 不应该提交的
 
 | 类型 | 原因 | 是否已排除 |
 |------|------|------------|
-| `.venv/` | 虚拟环境，通过 pyproject.toml 重建 | ✅ .gitignore |
+| `.venv/` | 虚拟环境，通过依赖文件重建 | ✅ .gitignore |
 | `.env` | 含 API Key 等敏感信息 | ✅ .gitignore |
 | `__pycache__/` | 运行时缓存 | ✅ .gitignore |
 | `.claude/` / `.traces/` | 工具运行时生成 | ✅ .gitignore |
 | `.git/`（嵌套） | 嵌套仓库历史 | ✅ .gitignore |
 | `*.zip` / `*.tar.gz` | 压缩包（冗余或可从源重建） | ✅ .gitignore |
-| `feishu-export/` | 飞书导出中间产物 | ✅ .gitignore |
-| `.backup-summaries/` | 备份摘要 | ✅ .gitignore |
-| HTML 归档 | 大且可重建 | ✅ .gitignore |
 | 原始 TS 源码映射 | 版权风险，只保留分析文档 | ⚠️ 手动处理 |
 
 ---
 
 ## 4. 更新流程
 
-### 4.1 新增内核文档
-
-1. 确定文档类别（final-thesis / system-analysis / research-reports / source-analysis）
-2. 使用 kebab-case 命名文件
-3. 内容中**不要出现本地文件名称**（如 `02-Report-Chapter2-Section1.md`）
-
-### 4.2 新增手册章节
+### 4.1 新增手册章节
 
 1. 放入对应 `docs/manual/part-*/`
 2. 章节编号保持连续
 3. 更新 `docs/manual/README.md` 中的目录
 
-### 4.3 新增源码模块
+### 4.2 新增实践配方
 
-1. 放入 `src/cc-python-runtime/cc/` 对应子包
-2. 必须包含 `__init__.py`
-3. 配套单元测试放入 `tests/unit/对应路径/`
+1. **Agent 示例**：放入 `docs/recipes/agents/`，文件命名说明用途
+2. **Skill 模板**：放入 `docs/recipes/skills/{skill-name}/SKILL.md`
+3. **学习文档**：按语言放入 `docs/recipes/docs/{en,zh}/`
+4. **Harness 参考**：放入 `docs/recipes/source-analysis/`
 
-### 4.4 修改前检查清单
+### 4.3 新增 Agent Runtime 工坊内容
+
+1. **工坊章节**：放入 `docs/workshop/chapters/ch-XX-name/`
+2. 每章包含 `theory.md`、`python-implementation.md`、`hands-on.md` 和 `images/`
+3. 章节编号保持 `ch-01` 到 `ch-99` 格式
+4. 更新 `docs/workshop/README.md` 中的章节索引
+
+### 4.4 新增 mewcode 项目内容
+
+1. `mewcode/` 是 Python 参考实现，保持独立可运行
+2. Python 模块放入 `mewcode/mewcode/`
+3. 测试放入 `mewcode/tests/`
+4. 修改后确保 `uv sync && pytest` 通过
+
+### 4.5 新增 Harness 笔记
+
+1. 放入 `harness/` 目录
+2. 使用 kebab-case 命名
+3. 在 `harness/README.md` 中维护索引
+
+### 4.6 修改前检查清单
 
 ```
 □ 新文件命名符合 kebab-case / snake_case
@@ -141,35 +172,25 @@ claude-code-complete/
 
 ## 5. 版权注意事项
 
-- `src/` 中的 Python 代码是**原创复刻**，可以上传
-- 原始 TypeScript 源码映射（`src.zip` 和解压后的 `src/`）**涉及版权**，只保留分析文档
-- 分析文档需注明"基于 Claude Code 源码映射的分析理解"
+- recipes 中的 Python 代码为**原创示例**，可以上传
+- 原始 TypeScript 源码映射**涉及版权**，只保留分析文档
+- 分析文档需注明"基于公开资料与源码映射的分析理解"
 
 ---
 
 ## 6. 快速参考
 
-### 重建开发环境
+### 本地预览
 
 ```bash
-cd src/cc-python-runtime
-uv sync        # 或 pip install -e .
-pytest tests/
+# 使用任意 Markdown 预览工具
+npx serve .                  # 或 python -m http.server 8000
 ```
 
-### 清理非仓库文件
+### 链接检查
 
-```powershell
-.\scripts\clean-for-github.ps1 -DryRun   # 预览
-.\scripts\clean-for-github.ps1           # 执行
-```
-
-### 检查上传大小
-
-```powershell
-.\scripts\check-size.ps1
-```
+修改文件路径后，建议全局搜索旧路径，确保 README 和手册目录中的链接已更新。
 
 ---
 
-*最后更新: 2026-06-02*
+*最后更新: 2026-07-07*

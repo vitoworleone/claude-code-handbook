@@ -1,5 +1,5 @@
 # ============================================
-# ClaudeCode-Runtime — Git Ignore Rules
+# ClaudeCode-Complete — Git Ignore Rules
 # ============================================
 
 # ---- Environment & Secrets ----
@@ -82,9 +82,3 @@ feishu-export/
 # ---- Project metadata (not for repo) ----
 fields.yaml
 outline.yaml
-
-# ---- HTML Archives (large, generated) ----
-docs/internals/html-archive/
-
-# ---- Third-party reference projects (large) ----
-oh-my-openagent/
