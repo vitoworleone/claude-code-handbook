@@ -33,10 +33,6 @@
 
 ## 四大板块
 
-<table>
-<tr>
-<td width="25%" valign="top">
-
 ### 📘 使用手册
 
 8 部分 24 章，从安装配置到高级技巧。
@@ -48,8 +44,7 @@
 
 → [进入手册](./docs/manual/)
 
-</td>
-<td width="25%" valign="top">
+---
 
 ### 🧰 实践配方
 
@@ -62,8 +57,7 @@
 
 → [查看配方](./docs/recipes/)
 
-</td>
-<td width="25%" valign="top">
+---
 
 ### 🛠️ Agent Runtime 工坊
 
@@ -75,8 +69,7 @@
 
 → [开始工坊](./docs/workshop/)
 
-</td>
-<td width="25%" valign="top">
+---
 
 ### 🏗️ Harness 笔记
 
@@ -87,10 +80,6 @@ Agent Harness 架构学习与整理。
 - Harness 设计模式总结
 
 → [查看笔记](./harness/)
-
-</td>
-</tr>
-</table>
 
 ---
 
