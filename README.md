@@ -202,4 +202,4 @@ Agent Harness 架构学习与整理。
 
 ## ⭐ Star History
 
-[![Star History Chart](https://api.star-history.com/svg?repos=vitoworleone/claude-code-handbook&type=Date)](https://star-history.com/#vitoworleone/claude-code-handbook&Date)
+[![Star History Chart](https://api.star-history.com/svg?repos=vitoworleone/ClaudeCode-Complete&type=Date)](https://star-history.com/#vitoworleone/ClaudeCode-Complete&Date)
