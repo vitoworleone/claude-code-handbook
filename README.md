@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="docs/assets/banner.png" alt="claude-code-handbook" width="100%">
+  <img src="docs/assets/readme-banner-1280x640.png" alt="claude-code-handbook" width="100%">
 </p>
 
 <p align="center">
