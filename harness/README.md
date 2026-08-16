@@ -22,3 +22,7 @@ Harness 是包在模型外面的运行时系统，负责把一个 LLM 变成可�
 - [ ] OpenCode / Codex / DeerFlow 设计对照
 - [ ] Claude Code Runtime 机制拆解
 - [ ] Harness 架构模式总结
+
+## Knowledge Governance
+
+- [Knowledge Governance](./knowledge-governance/README.md)：AI 协作中的验证循环、主观评审、关键决策 Trace，以及文档、规则与 Skills 的长期治理。
