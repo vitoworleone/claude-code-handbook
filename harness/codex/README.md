@@ -14,6 +14,7 @@
 | Session | Thread、Rollout JSONL、Runtime History、Context 注入与模型可见性的关系 | [session/](session/) |
 | 端到端请求 | 从用户消息开始，跟踪 Skills、Tools、Extensions、Session 和 Tool Results 如何汇合及回写 | [context/request-lifecycle.md](context/request-lifecycle.md) |
 | Compact | `/compact` 命令、自动压缩、本地/远程实现、History 替换与恢复 | [compact/](compact/) |
+| Sandbox | 文件与网络权限如何约束 Tool 执行、Approval 如何处理越界、各平台如何强制实施 | [sandbox/](sandbox/) |
 | Prompt | 基础指令、动态上下文最终如何发送给模型 | [prompt/](prompt/) |
 | Tools | 工具从哪里来、如何注册、如何进入 `Prompt.tools`、如何执行 | [tools/](tools/) |
 | MCP | Codex 如何连接 MCP Server、发现 MCP Tool、执行调用 | [mcps/](mcps/) |
